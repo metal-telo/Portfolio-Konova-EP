@@ -12,4 +12,5 @@
     <li>Перевод в системы счисления (2, 8, 10, 16)</li>
   </ul>
 </div>
+![image](https://github.com/user-attachments/assets/4dc92aad-e68e-461a-80c9-e12d4949e78e)
 
