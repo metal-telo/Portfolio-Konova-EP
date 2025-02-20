@@ -6,6 +6,7 @@
   <a href="https://vk.com/metaltelo"><img src="https://img.icons8.com/?size=100&id=dSdVIYLfZB7v&format=png&color=000000" width="70"/></a>
 </div>
 <div id="hrefs" align="left"  width="70%">
+  <h3>Список моих проектов</h3>
   <ul>
     <li><a href="https://github.com/metal-telo/Portfolio-Konova-EP/tree/Calculate">Базовый калькулятор</a></li>
     <li><a href="https://github.com/3ISIP-722/Emo-Pugs">Групповой проект EmoPugs</a></li>
