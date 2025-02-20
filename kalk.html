@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +19,7 @@
       }
 
       main {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
       }
 
@@ -28,7 +28,8 @@
       }
 
       input,
-      select {
+      select,
+      button {
         width: 100%;
         background-color: white;
         border: none;
@@ -37,29 +38,58 @@
         box-shadow: 2px 2px 4px #9b74ff, -2px -2px 4px #9b74ff;
         font-size: larger;
       }
+
+      button {
+        width: auto;
+        padding: 0.5% 1%;
+      }
+
       input[type="text"],
       select {
         padding: 1.5% 0;
         text-align: left;
       }
+
       table {
-        margin: 0 auto;
+        margin: 0 auto 2%;
         width: 100%;
       }
+
       td {
         width: 16.66%;
         vertical-align: bottom;
       }
+
       .red {
         background-color: #ff5a91;
         color: white;
       }
+
       .blu {
         background-color: #d2e6ff;
         font-weight: bold;
       }
+
       label {
         display: none;
+      }
+
+      span {
+        color: #3e2aaa;
+        font-size: large;
+      }
+
+      @media (width<970px) {
+        input,
+        select {
+          font-size: smaller;
+        }
+      }
+
+      @media (width<730px) {
+        main {
+          width: 96%;
+        }
       }
     </style>
     <script
@@ -334,27 +364,54 @@
           </tr>
         </table>
       </form>
+      <button class="umensh" onclick="umensh()">-</button>
+      <span>Изменить размер шрифта</span>
+      <button class="uvelich" onclick="uvelich()">+</button>
     </main>
   </body>
   <script>
+    //размер шрифта
+    function uvelich() {
+      changeFontSize(2);
+    }
+
+    function umensh() {
+      changeFontSize(-2);
+    }
+
+    function changeFontSize(delta) {
+      const body = document.querySelector("body");
+      if (body) {
+        // Проверка, что body найден
+        const currentFontSize = parseInt(
+          window.getComputedStyle(body).fontSize
+        );
+        const newFontSize = currentFontSize + delta;
+        body.style.fontSize = newFontSize + "px";
+      } else {
+        alert("Элемент body не найден!");
+      }
+    }
+
+    //калькулятор
     function backspace() {
       let display = document.getElementById("display");
-      display.value = display.value.slice(0, -1);
+      display.value = display.value.slice(0, -1); //удаление последнего символа
     }
 
     function calculate() {
       let display = document.getElementById("display");
-      let expression = display.value;
+      let expression = display.value; //значение строки
       let result;
 
       try {
         expression = expression.replace(/sin\(/g, "sin(" + Math.PI / 180 + "*");
         expression = expression.replace(/cos\(/g, "cos(" + Math.PI / 180 + "*");
         expression = expression.replace(/tan\(/g, "tan(" + Math.PI / 180 + "*");
-        result = math.evaluate(expression);
-        display.value = result;
+        result = math.evaluate(expression); //расчет по введённой строке
+        display.value = result; //вывод результата в то же поле
       } catch (error) {
-        display.value = "Error";
+        display.value = "Error"; //неверный ввод
       }
     }
 
@@ -382,15 +439,15 @@
       let display = document.getElementById("display");
       display.value += "^(";
     }
-
-    let typeFrom = document.getElementById("typeFrom");
-    let typeTo = document.getElementById("typeTo");
+    let typeFrom = document.getElementById("typeFrom"); //из х степени
+    let typeTo = document.getElementById("typeTo"); //в х степень
     let res = document.getElementById("res");
     let input = document.getElementById("input");
-    let inputType = document.getElementById("inputType");
-    let resultType = document.getElementById("resultType");
+    let inputType = document.getElementById("inputType"); //начальное число
+    let resultType = document.getElementById("resultType"); //конечное число
 
     const tags = {
+      //степени счисления
       10: "Десятичная:",
       2: "Двоичная:",
       8: "Восмиричная:",
@@ -401,7 +458,7 @@
       inputType.innerText = tags[typeFrom.value];
       resultType.innerText = tags[typeTo.value];
       res.value = Number(parseInt(input.value, typeFrom.value)).toString(
-        typeTo.value
+        typeTo.value //сам перевод
       );
     }
 
@@ -409,7 +466,7 @@
       inputType.innerText = tags[typeFrom.value];
       resultType.innerText = tags[typeTo.value];
       input.value = Number(parseInt(res.value, typeTo.value)).toString(
-        typeFrom.value
+        typeFrom.value //сам перевод
       );
     }
     update();
