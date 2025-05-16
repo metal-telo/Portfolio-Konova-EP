@@ -9,8 +9,9 @@
   <h3>Список моих проектов</h3>
   <ul>
     <li><a href="https://github.com/metal-telo/Portfolio-Konova-EP/tree/Calculate">Базовый калькулятор</a></li>
-    <li><a href="https://github.com/3ISIP-722/Emo-Pugs">Групповой проект EmoPugs</a></li>
     <li><a href="http://i98074no.beget.tech/umhome/index.html">Сайт интернет магазина UmHome</a></li>
     <li><a href="http://i98074no.beget.tech/курсач/main.html">Сайт для BMX райдеров</a></li>
+    <li><a href="https://github.com/3ISIP-722/Emo-Pugs">Групповой проект Пора Поесть</a></li>
+    <li><a href="https://github.com/metal-telo/Site-Pora-poest-">Групповой проект EmoPugs</a></li>
   </ul>
 </div>
